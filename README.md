@@ -3,6 +3,12 @@ Overview of the BLE Enabled Anker Prime 27650mAh Power Bank
 
 Since Anker does only allow the BLE connection to the Power Bank via their App and only via a valid user we ended up here^^
 
+This repo is made together with this explanation video:(click on the image)
+
+[https://www.youtube.com/watch?v=WtEIjkMUH_8](https://www.youtube.com/watch?v=WtEIjkMUH_8)
+
+[![YoutubeVideo](https://img.youtube.com/vi/WtEIjkMUH_8/0.jpg)](https://www.youtube.com/watch?v=WtEIjkMUH_8)
+
 ![](Overview.jpg)
 
 This Repos just puts together a few infos about the Anker Prime Power bank 27650mAh which feature BLE
